@@ -23,7 +23,7 @@ This project implements a dockerized data analytics system that integrates user,
       - `transactions_stats.sql`: SQL logic for calculating transaction statistics.
       - `kyc_vs_pending.sql`: SQL logic for comparing transaction behavior between KYC-completed and pending users.
         
-  ![](./assets/"data_lineage".png)
+  ![](./assets/data_lineage.png)
   
   - **seeds/**: Seed data files for dbt.
     - `users.csv`: Seed data for users.
