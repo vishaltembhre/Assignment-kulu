@@ -42,6 +42,7 @@ This project implements a dockerized data analytics system that integrates user,
   - **api-endpoints/**:
     Root: http://localhost:8000/
     KYC growth: http://localhost:8000/api/v1/kyc-growth
+    ![KYC growth: http://localhost:8000/api/v1/kyc-growth](./assets/kyc-growth.png)
     Top users: http://localhost:8000/api/v1/top-users
     Transaction stats: http://localhost:8000/api/v1/transaction-stats
     Merchant analysis: http://localhost:8000/api/v1/merchant-analysis
