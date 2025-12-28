@@ -30,7 +30,7 @@ This project implements a dockerized data analytics system that integrates user,
     - `onboarding.csv`: Seed data for onboarding.
     - `transactions.csv`: Seed data for transactions.
    
-  ![](./assets/dbt_asset.png)
+  ![](./assets/dbt_asset.png) 
 
 - **loader/**: Contains the loader service for loading CSV data into DuckDB.
   - `load_to_duckdb.py`: Python script for loading CSV data.
