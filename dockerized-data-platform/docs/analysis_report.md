@@ -6,24 +6,36 @@ This report summarizes the insights derived from the integrated data of users, o
 ## Key Insights
 
 ### 1. Daily KYC Completions and Week-over-Week Growth
-- The analysis of KYC completions reveals trends in user onboarding. 
-- A week-over-week comparison shows a growth rate of X% in KYC completions, indicating improved onboarding processes or increased user engagement.
+- Derived from: `dbt/models/solution/fct_kyc_daily.sql`
+- Tracks daily successful KYC completions (statuses 'kyc_done', 'completed').
+- **Key Metric**: `wow_growth_percentage` calculates the Week-over-Week growth:
+  - `((Current Day Count - Same Day Last Week Count) / Same Day Last Week Count) * 100`
 
 ### 2. Top 5 Users by Transaction Amount
-- The top 5 users by transaction amount for each day were identified.
-- These users contributed to Y% of the total transaction volume, highlighting key customers who drive revenue.
+- Derived from: `dbt/models/solution/fct_top_users_daily.sql`
+- Identifies the top 5 users by daily transaction volume and analyzes their market impact.
+- **Key Metrics**:
+  - `daily_amount`: Total transaction volume for the user.
+  - `contribution_percentage`: The user's share of the *total* daily market volume.
+  - `contribution_percentage_within_top_5`: The user's share relative to the combined volume of just the top 5 users.
 
 ### 3. Transaction Statistics
-- The following statistics were calculated for the transaction data:
-  - **Average Transaction Amount**: $Z
-  - **Median Transaction Amount**: $A
-  - **Minimum Transaction Amount**: $B
-  - **Maximum Transaction Amount**: $C
-- These statistics provide insights into user spending behavior.
+- Derived from: `dbt/models/solution/fct_transaction_stats.sql`
+- Provides daily aggregate statistics to monitor overall platform health.
+- **Key Metrics**:
+  - `transaction_count`: Total number of transactions.
+  - `total_amount`: Sum of transaction values.
+  - `average_amount`: Mean transaction value.
+  - `median_amount`: Median transaction value.
+  - `min_amount` / `max_amount`: The range of transaction values observed.
 
-### 4. Comparison of Transaction Behavior
-- A comparative analysis was conducted between KYC-completed users and those with pending KYC.
-- Findings indicate that KYC-completed users have a higher transaction frequency and average transaction amount compared to pending users, particularly among merchants.
+### 4. Merchant Analysis: KYC Impact
+- Derived from: `dbt/models/solution/fct_merchant_analysis.sql`
+- Compares transaction behavior between Merchants with completed KYC vs. those with pending KYC.
+- **Key Metrics** (Comparative for both groups):
+  - `volume`: Total transaction amount.
+  - `transaction_count`: Number of transactions.
+  - `average_transaction_value`: Average value per transaction.
 
 ## Conclusion
 The integrated data analytics system has successfully provided valuable insights into user behavior and transaction patterns. The findings can inform strategic decisions regarding user onboarding and engagement initiatives. Future analyses could further explore the impact of specific onboarding statuses on transaction behavior and overall user retention.
