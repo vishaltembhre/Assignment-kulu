@@ -1,0 +1,14 @@
+export DB_PATH=/full/path/to/analytics.db
+start app - python -m uvicorn app:app --reload --host 127.0.0.1 --port 8000
+api docs - http://127.0.0.1:8000/docs
+
+Root: http://127.0.0.1:8000/
+KYC growth: http://127.0.0.1:8000/api/v1/kyc-growth
+Top users: http://127.0.0.1:8000/api/v1/top-users
+Transaction stats: http://127.0.0.1:8000/api/v1/transaction-stats
+Merchant analysis: http://127.0.0.1:8000/api/v1/merchant-analysis
+Interactive docs: http://127.0.0.1:8000/docs
+
+docker infra built - docker-compose up --build
+
+run via bash at docker - bash ./start.sh or bash scripts/start.sh

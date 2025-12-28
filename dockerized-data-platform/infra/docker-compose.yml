@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # loader:
+  #   build:
+  #     context: ../loader
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ../data:/data_source
+  #     - analytics_data:/data
+  #   environment:
+  #     - DB_PATH=/data/analytics.db
+  #     - DATA_DIR=/data_source
+
+  # dbt:
+  #   build:
+  #     context: ../dbt
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - analytics_data:/data
+  #   environment:
+  #     - DB_PATH=/data/analytics.db
+  #   depends_on:
+  #     loader:
+  #       condition: service_completed_successfully
+  #   # Mount the dbt project as well so we can edit locally? 
+  #   # For now, just copy is fine (Dockerfile COPY . .)
+  #   command: dbt run --profiles-dir .
+
+  api:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    volumes:
+      - analytics_data:/data
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_PATH=/data/analytics.db
+    # depends_on:
+    #   dbt:
+    #     condition: service_completed_successfully
+    command: uvicorn app:app --host 0.0.0.0 --port 8000
+
+volumes:
+  analytics_data:

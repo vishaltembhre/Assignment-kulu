@@ -1,0 +1,8 @@
+kulu_data_platform:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DB_PATH', '/data/analytics.db') }}"
+      threads: 1
+      schema: dbt
