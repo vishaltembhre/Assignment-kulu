@@ -22,10 +22,15 @@ This project implements a dockerized data analytics system that integrates user,
       - `top_users.sql`: SQL logic for identifying the top users by transaction amount.
       - `transactions_stats.sql`: SQL logic for calculating transaction statistics.
       - `kyc_vs_pending.sql`: SQL logic for comparing transaction behavior between KYC-completed and pending users.
+        
+  ![](./assets/"data_lineage".png)
+  
   - **seeds/**: Seed data files for dbt.
     - `users.csv`: Seed data for users.
     - `onboarding.csv`: Seed data for onboarding.
     - `transactions.csv`: Seed data for transactions.
+   
+  ![](./assets/dbt_asset.png)
 
 - **loader/**: Contains the loader service for loading CSV data into DuckDB.
   - `load_to_duckdb.py`: Python script for loading CSV data.
@@ -42,10 +47,18 @@ This project implements a dockerized data analytics system that integrates user,
   - **api-endpoints/**:
     Root: http://localhost:8000/
     
-    ![KYC growth: http://localhost:8000/api/v1/kyc-growth](./assets/kyc-growth.png)
+    KYC growth: http://localhost:8000/api/v1/kyc-growth
+    ![](./assets/kyc-growth.png)
+    
     Top users: http://localhost:8000/api/v1/top-users
+    ![](./assets/top_users.png)
+    
     Transaction stats: http://localhost:8000/api/v1/transaction-stats
+    ![](./assets/transaction_stats.png)
+    
     Merchant analysis: http://localhost:8000/api/v1/merchant-analysis
+    ![](./assets/merchant_analysis.png)
+    
     Interactive docs: http://localhost:8000/docs
 
 - **infra/**: Contains infrastructure configuration files.
