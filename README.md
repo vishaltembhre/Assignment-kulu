@@ -54,7 +54,7 @@ This project implements a dockerized data analytics system that integrates user,
     ![](./assets/top_users.png)
     
     Transaction stats: http://localhost:8000/api/v1/transaction-stats
-    ![](./assets/transaction_stats.png)
+    ![](./assets/transactions_stats.png)
     
     Merchant analysis: http://localhost:8000/api/v1/merchant-analysis
     ![](./assets/merchant_analysis.png)
